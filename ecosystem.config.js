@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: 'moneri-spa-server',
+    name: 'monerispa-app',
     script: 'server.js',
     cwd: './server',
     instances: 1,
