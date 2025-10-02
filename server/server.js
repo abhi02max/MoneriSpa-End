@@ -101,6 +101,7 @@ if (process.env.NODE_ENV === 'production') {
     maxAge: '1d',
     etag: true
   }));
+  
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
   });
