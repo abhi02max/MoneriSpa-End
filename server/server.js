@@ -19,6 +19,13 @@ const rateLimit = require('express-rate-limit');
 const compression = require('compression');
 const connectDB = require('./config/db');
 
+// Debug environment variables
+console.log('🔍 Environment check:');
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('PORT:', process.env.PORT);
+console.log('MONGO_URI exists:', !!process.env.MONGO_URI);
+console.log('MONGO_URI length:', process.env.MONGO_URI ? process.env.MONGO_URI.length : 0);
+
 // Connect to Database
 connectDB();
 
