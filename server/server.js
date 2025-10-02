@@ -1,8 +1,19 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
+// Load environment variables - only if .env file exists
 const path = require('path');
 const fs = require('fs');
+const dotenv = require('dotenv');
+
+// Check if .env file exists before loading
+const envPath = path.join(__dirname, '.env');
+if (fs.existsSync(envPath)) {
+  dotenv.config();
+  console.log('✅ Loaded .env file');
+} else {
+  console.log('⚠️ No .env file found, using environment variables from PM2');
+}
+
+const express = require('express');
+const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const compression = require('compression');
