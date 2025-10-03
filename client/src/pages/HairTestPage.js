@@ -267,4 +267,5 @@ const HairTestPage = () => {
         </>
     );
 };
+
 export default HairTestPage;
