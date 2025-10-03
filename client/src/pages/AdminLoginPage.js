@@ -17,8 +17,8 @@ const AdminLoginPage = () => {
     setLoading(true);
     
     try {
-      const { data } = await apiService.post('/auth/login', { username, password });
-      localStorage.setItem('adminInfo', JSON.stringify(data));
+      const response = await apiService.post('/auth/login', { username, password });
+      localStorage.setItem('adminInfo', JSON.stringify(response.data));
       navigate('/dashboard');
     } catch (err) {
       console.error('Login error:', err);
@@ -80,4 +80,5 @@ const AdminLoginPage = () => {
     </div>
   );
 };
+
 export default AdminLoginPage;
