@@ -993,6 +993,12 @@ a {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
+  background: #fff !important;
+  border: 2px solid #ccc !important;
+  padding: 10px !important;
+  margin: 5px 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 /* Radio and checkbox styling */
@@ -1000,9 +1006,13 @@ a {
 .checkbox-group input[type="checkbox"] {
   display: inline-block !important;
   margin-right: 0.5rem;
-  width: 18px;
-  height: 18px;
+  width: 18px !important;
+  height: 18px !important;
   vertical-align: middle;
+  background: #fff !important;
+  border: 2px solid #ccc !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .radio-group label,
@@ -1011,6 +1021,26 @@ a {
   align-items: center;
   cursor: pointer;
   margin-bottom: 0.5rem;
+  background: #f9f9f9 !important;
+  padding: 8px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+}
+
+/* Debug: Make sure form groups are visible */
+.form-group {
+  background: #f0f0f0 !important;
+  padding: 15px !important;
+  margin: 10px 0 !important;
+  border: 2px solid #ddd !important;
+  border-radius: 8px !important;
+}
+
+.form-group label {
+  display: block !important;
+  font-weight: bold !important;
+  color: #333 !important;
+  margin-bottom: 5px !important;
 }
 
 /* Button Styles */
