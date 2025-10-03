@@ -1,3 +1,23 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap
+Sitemap: https://monerispaacademy.in/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow admin areas
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /api/
+
+# Allow important pages
+Allow: /hair-sanctuary
+Allow: /skin-and-soul
+Allow: /courses
+Allow: /gallery
+Allow: /our-story
+Allow: /beauty-journal
+Allow: /hair-consultation
+Allow: /skin-consultation

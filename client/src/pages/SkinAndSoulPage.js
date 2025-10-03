@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { FaCheckCircle } from 'react-icons/fa';
 import cell from '../assets/cellular.png';
 import pear from '../assets/pearl.png';
@@ -7,6 +8,12 @@ import pear from '../assets/pearl.png';
 const SkinAndSoulPage = () => {
     return (
         <>
+            <Helmet>
+                <title>Skin Care Services in Kolkata - The Skin & Soul Studio | Moneri Spa & Academy</title>
+                <meta name="description" content="Professional skin care treatments in Kolkata at The Skin & Soul Studio. Advanced facials, anti-aging treatments, and skin rejuvenation services for women. Book your consultation!" />
+                <meta name="keywords" content="skin care kolkata, facial treatment kolkata, anti aging kolkata, skin rejuvenation kolkata, professional facial kolkata, skin therapy kolkata" />
+                <link rel="canonical" href="https://monerispaacademy.in/skin-and-soul" />
+            </Helmet>
             <div className="page-header">
                 <h1>The Skin & Soul Studio</h1>
                 <p>Where advanced science meets pure serenity to unveil your natural radiance.</p>

@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { FaWind, FaSpa, FaMoon } from 'react-icons/fa';
 
 const HairSanctuaryPage = () => {
   return (
     <>
+      <Helmet>
+        <title>Hair Treatment Services in Kolkata - The Hair Sanctuary | Moneri Spa & Academy</title>
+        <meta name="description" content="Professional hair treatments in Kolkata at The Hair Sanctuary. Keratin therapy, hair spa, scalp treatments, and hair styling services for women. Book your consultation today!" />
+        <meta name="keywords" content="hair treatment kolkata, keratin therapy kolkata, hair spa kolkata, scalp treatment kolkata, hair styling kolkata, professional hair care kolkata" />
+        <link rel="canonical" href="https://monerispaacademy.in/hair-sanctuary" />
+      </Helmet>
       <div className="page-header">
         <h1>The Hair Sanctuary</h1>
         <p>Where artistry and hair wellness unite to reveal your most radiant self.</p>

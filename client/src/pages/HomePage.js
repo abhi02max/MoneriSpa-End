@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import spa from '../assets/spavideo.mp4';
 import fir from '../assets/first.jpg';
 import mid from '../assets/middle.avif';
@@ -26,6 +27,12 @@ const HomePage = () => {
   useScrollAnimation();
   return (
     <>
+      <Helmet>
+        <title>Moneri Spa & Academy - Premium Beauty & Wellness Services in Kolkata</title>
+        <meta name="description" content="Moneri Spa & Academy offers exclusive hair treatments, skin care, massage therapy, and beauty courses in Kolkata. Professional beauty services for women with personalized consultations." />
+        <meta name="keywords" content="spa kolkata, beauty salon kolkata, hair treatment kolkata, skin care kolkata, massage therapy kolkata, beauty courses kolkata, women spa, hair sanctuary, skin studio, beauty academy" />
+        <link rel="canonical" href="https://monerispaacademy.in/" />
+      </Helmet>
       <section className="hero">
         <video className="hero-video" autoPlay loop muted playsInline poster="fallback-image.jpg">
           <source src={spa} type="video/mp4" />
@@ -43,7 +50,7 @@ const HomePage = () => {
           <p className="section-subtitle reveal">
             Your journey to revitalization starts with a single step. Let our experts curate a personalized treatment plan for your most pressing hair and skin concerns.
           </p>
-          <div className="reveal" style={{display: 'flex', gap: '2rem', justifyContent: 'center'}}>
+          <div className="reveal consultation-buttons">
             <Link to="/hair-consultation" className="btn">Book Hair Consultation</Link>
             <Link to="/skin-consultation" className="btn">Book Skin Consultation</Link>
           </div>
