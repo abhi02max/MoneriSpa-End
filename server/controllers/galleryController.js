@@ -4,27 +4,41 @@ const path = require('path');
 
 exports.uploadImage = async (req, res) => {
   const { tagline } = req.body;
-  
+
   console.log('--- UPLOAD DEBUG ---');
   console.log('File received:', req.file);
   console.log('Tagline:', tagline);
   console.log('Body:', req.body);
-  
+
   if (!req.file) {
     console.log('No file received');
     return res.status(400).json({ message: 'Please upload a file' });
   }
-  
+
   const imageUrl = `/uploads/${req.file.filename}`;
-  
+
   try {
+    // Copy file to web directory for Nginx access
+    const fs = require('fs');
+    const sourcePath = req.file.path;
+    const webPath = `/var/www/monerispaacademy.in/uploads/${req.file.filename}`;
+    
+    // Copy file to web directory
+    fs.copyFileSync(sourcePath, webPath);
+    
+    // Set proper permissions
+    require('child_process').execSync(`chown www-data:www-data "${webPath}"`);
+    require('child_process').execSync(`chmod 755 "${webPath}"`);
+    
+    console.log('File copied to web directory:', webPath);
+
     const newImage = new GalleryImage({ tagline: tagline || '', imageUrl });
     const savedImage = await newImage.save();
     console.log('Image saved successfully:', savedImage);
     res.status(201).json(savedImage);
-  } catch (error) { 
+  } catch (error) {
     console.error('Upload error:', error);
-    res.status(500).json({ message: 'Server error while uploading image' }); 
+    res.status(500).json({ message: 'Server error while uploading image' });
   }
 };
 
