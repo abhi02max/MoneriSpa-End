@@ -601,6 +601,23 @@ a {
 .step.completed .step-title { color: var(--text-light); }
 .form-navigation { display: flex; justify-content: space-between; margin-top: 2rem; }
 
+/* Form Step Styles */
+.form-step {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+}
+
+.form-step h2 {
+  color: var(--deep-plum);
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
 /* --- 6. Gallery Page --- */
 .gallery-page-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
 .gallery-card { background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 50px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; }
@@ -959,12 +976,41 @@ a {
   font-family: var(--font-body);
 }
 
-.form-group input:focus { 
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { 
   outline: none; 
   border-color: var(--gold-leaf); 
   background-color: white; 
   box-shadow: 0 0 0 4px rgba(191, 161, 105, 0.2); 
   transform: translateY(-2px);
+}
+
+/* Ensure all form elements are visible */
+.consultation-form input,
+.consultation-form select,
+.consultation-form textarea {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Radio and checkbox styling */
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+  display: inline-block !important;
+  margin-right: 0.5rem;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+
+.radio-group label,
+.checkbox-group label {
+  display: flex !important;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
 }
 
 /* Button Styles */
