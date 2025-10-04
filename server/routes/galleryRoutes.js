@@ -7,18 +7,26 @@ const { protect } = require('../middleware/authMiddleware');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    // Save to both locations for compatibility
-    const serverUploads = path.join(__dirname, '../uploads/');
-    const webUploads = '/var/www/monerispaacademy.in/uploads/';
-    
-    // Ensure both directories exist
-    require('fs').mkdirSync(serverUploads, { recursive: true });
-    require('fs').mkdirSync(webUploads, { recursive: true });
-    
-    cb(null, serverUploads);
+    try {
+      // Save to both locations for compatibility
+      const serverUploads = path.join(__dirname, '../uploads/');
+      const webUploads = '/var/www/monerispaacademy.in/uploads/';
+      
+      // Ensure both directories exist
+      require('fs').mkdirSync(serverUploads, { recursive: true });
+      require('fs').mkdirSync(webUploads, { recursive: true });
+      
+      console.log('Multer destination:', serverUploads);
+      cb(null, serverUploads);
+    } catch (error) {
+      console.error('Directory creation error:', error);
+      cb(error);
+    }
   },
   filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`);
+    const filename = `${Date.now()}-${file.originalname}`;
+    console.log('Generated filename:', filename);
+    cb(null, filename);
   },
 });
 

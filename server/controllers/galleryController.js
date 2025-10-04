@@ -23,14 +23,28 @@ exports.uploadImage = async (req, res) => {
     const sourcePath = req.file.path;
     const webPath = `/var/www/monerispaacademy.in/uploads/${req.file.filename}`;
     
+    console.log('Source path:', sourcePath);
+    console.log('Web path:', webPath);
+    
+    // Ensure web directory exists
+    const webDir = '/var/www/monerispaacademy.in/uploads/';
+    if (!fs.existsSync(webDir)) {
+      fs.mkdirSync(webDir, { recursive: true });
+      console.log('Created web directory:', webDir);
+    }
+    
     // Copy file to web directory
     fs.copyFileSync(sourcePath, webPath);
-    
-    // Set proper permissions
-    require('child_process').execSync(`chown www-data:www-data "${webPath}"`);
-    require('child_process').execSync(`chmod 755 "${webPath}"`);
-    
     console.log('File copied to web directory:', webPath);
+    
+    // Set proper permissions (with error handling)
+    try {
+      require('child_process').execSync(`chown www-data:www-data "${webPath}"`);
+      require('child_process').execSync(`chmod 644 "${webPath}"`);
+      console.log('Permissions set successfully');
+    } catch (permError) {
+      console.log('Permission setting failed (non-critical):', permError.message);
+    }
 
     const newImage = new GalleryImage({ tagline: tagline || '', imageUrl });
     const savedImage = await newImage.save();
@@ -38,7 +52,7 @@ exports.uploadImage = async (req, res) => {
     res.status(201).json(savedImage);
   } catch (error) {
     console.error('Upload error:', error);
-    res.status(500).json({ message: 'Server error while uploading image' });
+    res.status(500).json({ message: 'Server error while uploading image: ' + error.message });
   }
 };
 
