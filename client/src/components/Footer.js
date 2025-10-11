@@ -37,7 +37,8 @@ const Footer = () => {
                     <h4>Contact Us</h4>
                     <p>392, Ramkrishna Nagar Road, Near Hindustan More, Kolkata</p>
                     <p>Email: info@monerispaacademy.com</p>
-                    <p>Call: (+91) 967-416-8149</p>
+                    <p>Call: +91 94336 67859</p>
+                    <p>Call: +91 80178 70465</p>
                 </div>
             </div>
             <div className="footer-bottom">
